@@ -43,26 +43,26 @@ public class Worm {
         return pieces;
     }
 
-    public void move() {
+//    public void move() {
 
-        if (this.direction.equals(Direction.LEFT)) {
-            pieces.add(new Piece(pieces.get(getSize() - 1).getX() - 1, pieces.get(getSize() - 1).getY()));
-        } else if (this.direction.equals(Direction.RIGHT)) {
-            pieces.add(new Piece(pieces.get(getSize() - 1).getX() + 1, pieces.get(getSize() - 1).getY()));
-        } else if (this.direction.equals(Direction.UP)) {
-            pieces.add(new Piece(pieces.get(getSize() - 1).getX(), pieces.get(getSize() - 1).getY() - 1));
-        } else if (this.direction.equals(Direction.DOWN)) {
-            pieces.add(new Piece(pieces.get(getSize() - 1).getX(), pieces.get(getSize() - 1).getY() + 1));
-        }
+//        if (this.direction.equals(Direction.LEFT)) {
+//            pieces.add(new Piece(pieces.get(getSize() - 1).getX() - 1, pieces.get(getSize() - 1).getY()));
+ //       } else if (this.direction.equals(Direction.RIGHT)) {
+ //           pieces.add(new Piece(pieces.get(getSize() - 1).getX() + 1, pieces.get(getSize() - 1).getY()));
+//        } else if (this.direction.equals(Direction.UP)) {
+ //           pieces.add(new Piece(pieces.get(getSize() - 1).getX(), pieces.get(getSize() - 1).getY() - 1));
+ //       } else if (this.direction.equals(Direction.DOWN)) {
+ //           pieces.add(new Piece(pieces.get(getSize() - 1).getX(), pieces.get(getSize() - 1).getY() + 1));
+ //       }
         
-        if (getSize() < 3) {
-            return;
-        }
+  //      if (getSize() < 3) {
+  //          return;
+   //     }
 
-        if (!grew) {
-            pieces.remove(0);
-        }
-    }
+   //     if (!grew) {
+   //         pieces.remove(0);
+    //    }
+ //   }
 
     public void grow() {
 
