@@ -1,30 +1,28 @@
 package wgame;
 
-import worm.domain.Worm;
+import javax.swing.SwingUtilities;
+import wgame.game.Wgame;
+import wgame.gui.UI;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Worm w = new Worm(5, 5, Direction.RIGHT);
+        Wgame wgame = new Wgame(20, 20);
 
-        System.out.println(w.getPieces());
-        w.move();
-        System.out.println(w.getPieces());
-        w.move();
-        System.out.println(w.getPieces());
-        w.move();
-        System.out.println(w.getPieces());
+        UI kali = new UI(wgame, 20);
+        SwingUtilities.invokeLater(kali);
 
-        w.grow();
-        System.out.println(w.getPieces());
-        w.move();
-        System.out.println(w.getPieces());
+        while (kali.getRefreshable() == null) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
 
-        w.setDirection(Direction.LEFT);
-        System.out.println(w.overlapsItself());
-        w.move();
-        System.out.println(w.overlapsItself());
+            }
+        }
+
+        wgame.setRefreshable(kali.getRefreshable());
+        wgame.start();
 
     }
 }
