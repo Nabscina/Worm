@@ -43,36 +43,58 @@ public class Worm {
         return pieces;
     }
 
-//    public void move() {
+    public void move() {
 
-//        if (this.direction.equals(Direction.LEFT)) {
-//            pieces.add(new Piece(pieces.get(getSize() - 1).getX() - 1, pieces.get(getSize() - 1).getY()));
- //       } else if (this.direction.equals(Direction.RIGHT)) {
- //           pieces.add(new Piece(pieces.get(getSize() - 1).getX() + 1, pieces.get(getSize() - 1).getY()));
-//        } else if (this.direction.equals(Direction.UP)) {
- //           pieces.add(new Piece(pieces.get(getSize() - 1).getX(), pieces.get(getSize() - 1).getY() - 1));
- //       } else if (this.direction.equals(Direction.DOWN)) {
- //           pieces.add(new Piece(pieces.get(getSize() - 1).getX(), pieces.get(getSize() - 1).getY() + 1));
- //       }
-        
-  //      if (getSize() < 3) {
-  //          return;
-   //     }
+        if (pieces.size() <= 2 || this.grew == true) {
+            xs = xs;
+        } else {
+            pieces.remove(0);
+        }
 
-   //     if (!grew) {
-   //         pieces.remove(0);
-    //    }
- //   }
+        if (this.direction == Direction.DOWN) {
+            this.ys++;
+            pieces.add(new Piece(this.xs, this.ys));
+        } else if (this.direction == Direction.RIGHT) {
+            this.xs++;
+            pieces.add(new Piece(this.xs, this.ys));
+        } else if (this.direction == Direction.LEFT) {
+            this.xs--;
+            pieces.add(new Piece(this.xs, this.ys));
+        } else if (this.direction == Direction.UP) {
+            this.ys--;
+            pieces.add(new Piece(this.xs, this.ys));
+        }
+
+        this.grew = false;
+    }
 
     public void grow() {
 
-        if (getSize() < 3) {
-            return;
+        this.grew = true;
+    }
+
+    public boolean overlaps(Piece piece) {
+
+        for (Piece piece1 : pieces) {
+            if (piece1.overlaps(piece)) {
+                return true;
+            }
         }
 
-        grew = true;
-        move();
-        grew = false;
+        return false;
+    }
+
+    public boolean overlapsItself() {
+
+        for (Piece piece : pieces) {
+            for (Piece piece1 : pieces) {
+                if ((!piece.equals(piece1)) && piece.overlaps(piece1)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 }
