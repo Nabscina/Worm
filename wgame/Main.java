@@ -10,18 +10,17 @@ public class Main {
 
         Wgame wgame = new Wgame(20, 20);
 
-        UI kali = new UI(wgame, 20);
-        SwingUtilities.invokeLater(kali);
+        UI ui = new UI(wgame, 20);
+        SwingUtilities.invokeLater(ui);
 
-        while (kali.getRefreshable() == null) {
+        while (ui.getRefreshable() == null) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
-
             }
         }
 
-        wgame.setRefreshable(kali.getRefreshable());
+        wgame.setRefreshable(ui.getRefreshable());
         wgame.start();
 
     }
