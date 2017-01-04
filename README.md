@@ -2,4 +2,4 @@
 
 Slippery slug
 
-Work in progress
+An exercise on "Advanced Course in Programming"
