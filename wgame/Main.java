@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Wgame wgame = new Wgame(20, 20);
+        Wgame wgame = new Wgame(25, 25);
 
         UI ui = new UI(wgame, 20);
         SwingUtilities.invokeLater(ui);

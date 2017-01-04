@@ -1,6 +1,7 @@
 package wgame.gui;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import worm.domain.Piece;
@@ -26,6 +27,9 @@ public class Graphx extends JPanel implements Refreshable {
         for (Piece piece : wgame.getWorm().getPieces()) {
             g.fill3DRect(piece.getX() * side, piece.getY() * side, side, side, true);
         }
+
+        g.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
+        g.drawString(wgame.getCounter().numberOfApples() + "", wgame.getCounter().getX(), wgame.getCounter().getY());
 
         g.setColor(Color.RED);
         g.fillOval(wgame.getApple().getX() * side, wgame.getApple().getY() * side, side, side);
