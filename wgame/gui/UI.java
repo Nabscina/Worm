@@ -2,10 +2,7 @@ package wgame.gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import wgame.game.Wgame;
 
