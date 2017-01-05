@@ -33,6 +33,7 @@ public class UI implements Runnable {
         createComps(frame.getContentPane());
 
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
