@@ -139,7 +139,7 @@ public class Wgame extends Timer implements ActionListener {
     public boolean touchesWall() {
 
         for (Piece piece : worm.getPieces()) {
-            if (piece.getX() == 0 || piece.getX() == this.width || piece.getY() == 0 || piece.getY() == this.height) {
+            if (piece.getX() == -1 || piece.getX() == this.width + 1 || piece.getY() == -1 || piece.getY() == this.height + 1) {
                 return true;
             }
         }
